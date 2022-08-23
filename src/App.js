@@ -5,21 +5,27 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <Person name="shakib khan" nayika="bubly"></Person>
+       <Person  name="riyaz" nayika="purnima"></Person>
+       <Person  name="bapparaz" nayika="mousumi"></Person>
+       
       </header>
     </div>
   );
+}
+
+function Person(props) {
+  const personStyle = {
+    border: "2px solid red",
+    margin: "10px",
+    padding: "10px"
+  }
+  return (
+    <div style={personStyle}>
+      <h1>Name: {props.name}</h1>
+      <p>Hero of {props.nayika}</p>
+    </div>
+  )
 }
 
 export default App;

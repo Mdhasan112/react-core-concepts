@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
   const nayoks = ['razzak', 'sakib', 'sium', 'arifin', 'salman']
@@ -11,6 +12,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Users></Users>
+        <Counter></Counter>
         <ul>
           {nayoks.map(nayok => <li>{nayok}</li> )}
           {Products.map(product => <li>{product.name}</li> )}
@@ -26,6 +29,32 @@ function App() {
       </header>
     </div>
   );
+}
+
+function Users () {
+  const[user, setUser] = useState([]);
+  useEffect(() => {
+    console.log("welcome")
+  })
+  return (
+    <div>
+      <h3>hello</h3>
+    </div>
+  )
+}
+
+function Counter() {
+  const[counter, setCounter] = useState(5)
+  const clickhandler = () => setCounter(counter + 1 );
+  
+  
+  return(
+    <div>
+      <h1>Count: {counter}</h1>
+      <button onClick= {() => setCounter(counter - 1 )}>Decrease</button>
+      <button onClick= {() => setCounter(counter + 1 )}>Increase</button>
+    </div>
+  )
 }
 
 function Product(props) {

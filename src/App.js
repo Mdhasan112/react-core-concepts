@@ -32,13 +32,20 @@ function App() {
 }
 
 function Users () {
-  const[user, setUser] = useState([]);
+  const[user, setUser] = useState([])
+
   useEffect(() => {
-    console.log("welcome")
-  })
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => setUser(data))
+  }, [])
+  
   return (
     <div>
-      <h3>hello</h3>
+      <h3>Dynamic Count: {user.length}</h3>
+      <ul>
+        {user.map(user => <li>{user.name}</li>)}
+      </ul>
     </div>
   )
 }
